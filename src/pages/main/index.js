@@ -8,8 +8,8 @@ export default class Main extends Component{
     state = {
         products:[],
         productInfo: {},
-        page: 1,
-    }
+        page: 1
+    };
 
     componentDidMount(){
         this.loadProducts();
@@ -44,21 +44,21 @@ export default class Main extends Component{
     };
     
     render(){
-        const {products} = this.state;
+        const {products, page, productInfo} = this.state;
 
         return (
             <div className='product-list'>
-                {products.map(product=>(
+                {products.map(product => (
                     //<h2 key={product._id}>{product.title}</h2>
                     <article key={product._id}>
                         <strong>{product.title}</strong>
                         <p>{product.description}</p>
-                        <a href="#">Acessar</a>
+                        <a href="">Acessar</a>
                     </article>
                 ))}
                 <div className="actions">
-                    <button onClick={this.prevPage()}>Anterior</button>
-                    <button onClick={this.nextPage()}>Próximo</button>
+                    <button disabled={page===1} onClick={this.prevPage()}>Anterior</button>
+                    <button disabled={page===productInfo.pages} onClick={this.nextPage()}>Próximo</button>
                 </div>
             </div>
         )
