@@ -51,7 +51,6 @@ export default class Main extends Component{
         return (
             <div className='product-list'>
                 {products.map(product => (
-                    //<h2 key={product._id}>{product.title}</h2>
                     <article key={product._id}>
                         <strong>{product.title}</strong>
                         <p>{product.description}</p>
@@ -63,7 +62,6 @@ export default class Main extends Component{
                     <button disabled={page===productInfo.pages} onClick={()=>this.nextPage()}>Próximo</button>
                 </div>
             </div>
-        )
-        //<h1>Contagem de Produtos: {this.state.products.length}</h1>
+        );
     }
 }
